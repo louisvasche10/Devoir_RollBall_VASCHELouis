@@ -8,8 +8,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("World1Level1");
         ScoreManager.ResetScore();
+        RaceManager.TotalRaceTime = 0f;
+        SceneManager.LoadScene("World1Level1");
     }
 
     public void Options()

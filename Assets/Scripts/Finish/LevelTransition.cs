@@ -14,7 +14,6 @@ public class LevelTransition : MonoBehaviour
         }
 
         string[] scenes = levelSequence.levelScenes;
-
         int nextLevelIndex = currentLevelIndex + 1;
 
         if (nextLevelIndex >= scenes.Length)
@@ -29,6 +28,17 @@ public class LevelTransition : MonoBehaviour
         {
             Debug.LogError("Next scene name is empty!");
             return;
+        }
+
+        RaceManager raceManager = FindFirstObjectByType<RaceManager>();
+
+        if (raceManager != null)
+        {
+            raceManager.SaveLevelTime();
+        }
+        else
+        {
+            Debug.LogWarning("RaceManager not found. Level time will not be saved.");
         }
 
         SceneManager.LoadScene(nextScene);

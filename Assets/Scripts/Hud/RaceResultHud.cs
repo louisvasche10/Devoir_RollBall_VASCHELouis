@@ -37,9 +37,11 @@ public class RaceResultHUD : MonoBehaviour
             hud.SetActive(false);
         }
 
+        float finalTime = RaceManager.TotalRaceTime + RaceManager.RaceTime;
+
         resultText.text = "Course terminée !\n\n"
             + "Trophée : " + raceManager.Trophy + "\n\n"
-            + "Temps : " + RaceManager.RaceTime.ToString("F2") + " secondes\n"
+            + "Temps total : " + finalTime.ToString("F2") + " secondes\n"
             + "Score : " + ScoreManager.Score + "\n"
             + "Morts : " + raceManager.TotalDeaths;
 
@@ -55,4 +57,3 @@ public class RaceResultHUD : MonoBehaviour
         SceneManager.LoadScene(mainMenuScene);
     }
 }
-
